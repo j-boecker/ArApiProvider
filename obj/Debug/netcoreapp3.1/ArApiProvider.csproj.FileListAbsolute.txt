@@ -1,6 +1,7 @@
 C:\Users\julzb\source\repos\ArApiProvider\ArApiProvider\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\julzb\source\repos\ArApiProvider\ArApiProvider\bin\Debug\netcoreapp3.1\appsettings.json
 C:\Users\julzb\source\repos\ArApiProvider\ArApiProvider\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
+C:\Users\julzb\source\repos\ArApiProvider\ArApiProvider\bin\Debug\netcoreapp3.1\Properties\serviceDependencies.ArWebApiProviderDemo - Web Deploy.json
 C:\Users\julzb\source\repos\ArApiProvider\ArApiProvider\bin\Debug\netcoreapp3.1\Properties\serviceDependencies.json
 C:\Users\julzb\source\repos\ArApiProvider\ArApiProvider\bin\Debug\netcoreapp3.1\Properties\serviceDependencies.local.json
 C:\Users\julzb\source\repos\ArApiProvider\ArApiProvider\bin\Debug\netcoreapp3.1\ArApiProvider.StaticWebAssets.xml
@@ -274,6 +275,8 @@ C:\Users\julzb\source\repos\ArApiProvider\ArApiProvider\bin\Debug\netcoreapp3.1\
 C:\Users\julzb\source\repos\ArApiProvider\ArApiProvider\bin\Debug\netcoreapp3.1\refs\WindowsBase.dll
 C:\Users\julzb\source\repos\ArApiProvider\ArApiProvider\bin\Debug\netcoreapp3.1\ArApiProvider.Views.dll
 C:\Users\julzb\source\repos\ArApiProvider\ArApiProvider\bin\Debug\netcoreapp3.1\ArApiProvider.Views.pdb
+C:\Users\julzb\source\repos\ArApiProvider\ArApiProvider\bin\Debug\netcoreapp3.1\System.Net.Http.Formatting.dll
+C:\Users\julzb\source\repos\ArApiProvider\ArApiProvider\bin\Debug\netcoreapp3.1\System.Web.Http.dll
 C:\Users\julzb\source\repos\ArApiProvider\ArApiProvider\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.Internal.dll
 C:\Users\julzb\source\repos\ArApiProvider\ArApiProvider\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 C:\Users\julzb\source\repos\ArApiProvider\ArApiProvider\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll
@@ -312,7 +315,15 @@ C:\Users\julzb\source\repos\ArApiProvider\ArApiProvider\bin\Debug\netcoreapp3.1\
 C:\Users\julzb\source\repos\ArApiProvider\ArApiProvider\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
 C:\Users\julzb\source\repos\ArApiProvider\ArApiProvider\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
 C:\Users\julzb\source\repos\ArApiProvider\ArApiProvider\bin\Debug\netcoreapp3.1\Microsoft.Identity.Client.dll
+C:\Users\julzb\source\repos\ArApiProvider\ArApiProvider\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
+C:\Users\julzb\source\repos\ArApiProvider\ArApiProvider\bin\Debug\netcoreapp3.1\Namotion.Reflection.dll
 C:\Users\julzb\source\repos\ArApiProvider\ArApiProvider\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\julzb\source\repos\ArApiProvider\ArApiProvider\bin\Debug\netcoreapp3.1\NJsonSchema.dll
+C:\Users\julzb\source\repos\ArApiProvider\ArApiProvider\bin\Debug\netcoreapp3.1\NSwag.Core.dll
+C:\Users\julzb\source\repos\ArApiProvider\ArApiProvider\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\julzb\source\repos\ArApiProvider\ArApiProvider\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\julzb\source\repos\ArApiProvider\ArApiProvider\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\julzb\source\repos\ArApiProvider\ArApiProvider\bin\Debug\netcoreapp3.1\Swashbuckle.Core.dll
 C:\Users\julzb\source\repos\ArApiProvider\ArApiProvider\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
 C:\Users\julzb\source\repos\ArApiProvider\ArApiProvider\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
 C:\Users\julzb\source\repos\ArApiProvider\ArApiProvider\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
@@ -353,7 +364,6 @@ C:\Users\julzb\source\repos\ArApiProvider\ArApiProvider\bin\Debug\netcoreapp3.1\
 C:\Users\julzb\source\repos\ArApiProvider\ArApiProvider\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\julzb\source\repos\ArApiProvider\ArApiProvider\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\julzb\source\repos\ArApiProvider\ArApiProvider\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\julzb\source\repos\ArApiProvider\ArApiProvider\obj\Debug\netcoreapp3.1\ArApiProvider.csprojAssemblyReference.cache
 C:\Users\julzb\source\repos\ArApiProvider\ArApiProvider\obj\Debug\netcoreapp3.1\ArApiProvider.AssemblyInfoInputs.cache
 C:\Users\julzb\source\repos\ArApiProvider\ArApiProvider\obj\Debug\netcoreapp3.1\ArApiProvider.AssemblyInfo.cs
 C:\Users\julzb\source\repos\ArApiProvider\ArApiProvider\obj\Debug\netcoreapp3.1\ArApiProvider.csproj.CoreCompileInputs.cache
@@ -382,4 +392,3 @@ C:\Users\julzb\source\repos\ArApiProvider\ArApiProvider\obj\Debug\netcoreapp3.1\
 C:\Users\julzb\source\repos\ArApiProvider\ArApiProvider\obj\Debug\netcoreapp3.1\ArApiProvider.dll
 C:\Users\julzb\source\repos\ArApiProvider\ArApiProvider\obj\Debug\netcoreapp3.1\ArApiProvider.pdb
 C:\Users\julzb\source\repos\ArApiProvider\ArApiProvider\obj\Debug\netcoreapp3.1\ArApiProvider.genruntimeconfig.cache
-C:\Users\julzb\source\repos\ArApiProvider\ArApiProvider\bin\Debug\netcoreapp3.1\Properties\serviceDependencies.ArWebApiProviderDemo - Web Deploy.json

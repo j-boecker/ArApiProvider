@@ -18,9 +18,9 @@ nupkg/
 *.sln.docstates
 
 # Build results
-bin/
+bin/.*
 bin\
-obj/
+obj/.*
 obj\
 [Dd]ebug/
 [Dd]ebugPublic/
@@ -41,3 +41,4 @@ msbuild.wrn
 .vs/
 bin/Release/netcoreapp3.1/ArApiProvider.Views.dll
 *.dll
+obj/Debug/netcoreapp3.1/ArApiProvider.csprojAssemblyReference.cache

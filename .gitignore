@@ -19,6 +19,9 @@ nupkg/
 
 # Build results
 bin/
+bin\
+obj/
+obj\
 [Dd]ebug/
 [Dd]ebugPublic/
 [Rr]elease/

@@ -37,8 +37,5 @@ msbuild.log
 msbuild.err
 msbuild.wrn
 
-# Visual Studio 2015
 .vs/
-bin/Release/netcoreapp3.1/ArApiProvider.Views.dll
 *.dll
-obj/Debug/netcoreapp3.1/ArApiProvider.csprojAssemblyReference.cache

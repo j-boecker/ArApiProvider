@@ -33,7 +33,8 @@ namespace ArApiProvider.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<RoomPlan>> GetRoomPlan(int id)
         {
-            var roomPlan = await _context.RoomPlans.FindAsync(id);
+            var roomPlan = await _context.Set<RoomPlan>().Include(x => x.WallBlocks)
+                .FirstOrDefaultAsync(x => x.Id == id);
 
             if (roomPlan == null)
             {
@@ -43,6 +44,28 @@ namespace ArApiProvider.Controllers
             return roomPlan;
         }
 
+        [HttpPut("{id}/walls")]
+        public async Task<IActionResult> UpdateWallBlocks(int id, [FromBody]List<WallBlock> wallBlocks)
+        {
+            var roomPlan = _context.Set<RoomPlan>().Include(x=> x.WallBlocks).FirstOrDefault(x => x.Id == id);
+            if (roomPlan == null)
+                return NotFound();
+
+            roomPlan.WallBlocks.Clear();
+            foreach (var wallBlock in wallBlocks)
+            {
+                wallBlock.Id = 0;
+                _context.WallBlocks.Add(wallBlock);
+            }
+            roomPlan.WallBlocks = new List<WallBlock>(wallBlocks);
+            if (ModelState.IsValid == false)
+            {
+                return BadRequest();
+            }
+
+            await _context.SaveChangesAsync();
+            return Ok();
+        }
         // PUT: api/RoomPlans/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutRoomPlan(int id, RoomPlan roomPlan)

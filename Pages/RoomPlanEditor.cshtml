@@ -1,0 +1,244 @@
+﻿@page
+@model ArApiProvider.Pages.RoomPlanEditorModel
+@{
+    ViewData["Title"] = "Room Plans Editor";
+}
+
+<h3>Edit Room Plan for Room Id @Model.RoomId</h3>
+
+<script src="js/konva.min.js"></script>
+<div class="row">
+    <div clas="col-3">
+        <button  onclick="uploadWalls()" id="saveButton" class="btn-primary">Save Changes</button>
+    </div>
+    <div class=" col-8">
+        <div id="container"></div>
+
+    </div>
+</div>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #F5F5F5;
+        background-size: cover;
+    }
+    #container{
+        height: 500px;
+        width: 500px;
+    }
+
+    #desc {
+        position : absolute;
+        top: 5px;
+        left: 5px;
+    }
+</style>
+
+<script>
+    var width = 800;
+    var height = 800;
+    var shadowOffset = 10;
+    var tween = null;
+    var blockSnapSize = 20;
+    var wallList = new Array();
+
+    var shadowRectangle = new Konva.Rect({
+        x: 0,
+        y: 0,
+        width: blockSnapSize * 5,
+        height: blockSnapSize * 2,
+        fill: '#FF7B17',
+        opacity: 0.6,
+        stroke: '#CF6412',
+        strokeWidth: 3,
+        dash: [20, 2]
+    });
+
+    var shadowRectangle90 = new Konva.Rect({
+        x: 0,
+        y: 0,
+        width: blockSnapSize * 2,
+        height: blockSnapSize * 5,
+        fill: '#FF7B17',
+        opacity: 0.6,
+        stroke: '#CF6412',
+        strokeWidth: 3,
+        dash: [20, 2]
+    });
+
+    function newRectangle(x, y, layer, stage, fill) {
+        let rectangle = new Konva.Rect({
+            x: x,
+            y: y,
+            width: blockSnapSize * 5,
+            height: blockSnapSize * 2,
+            fill: fill,
+            stroke: '#ddd',
+            strokeWidth: 1,
+            shadowColor: 'black',
+            shadowBlur: 2,
+            shadowOffset: { x: 1, y: 1 },
+            shadowOpacity: 0.4,
+            draggable: true
+        });
+        rectangle.on('dragstart', (e) => {
+            shadowRectangle.show();
+            shadowRectangle.moveToTop();
+            rectangle.moveToTop();
+        });
+        rectangle.on('dragend', (e) => {
+            rectangle.position({
+                x: Math.round(rectangle.x() / blockSnapSize) * blockSnapSize,
+                y: Math.round(rectangle.y() / blockSnapSize) * blockSnapSize
+            });
+            stage.batchDraw();
+            shadowRectangle.hide();
+            if (rectangle.attrs.fill == '#00FF00') {
+                rectangle.attrs.fill = '#696969';
+                newRectangle(blockSnapSize * 4, blockSnapSize * 1, layer, stage, '#00FF00');
+            }
+
+        });
+        rectangle.on('dragmove', (e) => {
+            shadowRectangle.position({
+                x: Math.round(rectangle.x() / blockSnapSize) * blockSnapSize,
+                y: Math.round(rectangle.y() / blockSnapSize) * blockSnapSize
+            });
+            stage.batchDraw();
+        });
+        if (rectangle.attrs.fill != '#00FF00') {
+                wallList.push(rectangle);
+            }
+       
+        layer.add(rectangle);
+    }
+    function newRectangle90(x, y, layer, stage, fill) {
+        let rectangle = new Konva.Rect({
+            x: x,
+            y: y,
+            width: blockSnapSize * 2,
+            height: blockSnapSize * 5,
+            fill: fill,
+            stroke: '#ddd',
+            strokeWidth: 1,
+            shadowColor: 'black',
+            shadowBlur: 2,
+            shadowOffset: { x: 1, y: 1 },
+            shadowOpacity: 0.4,
+            draggable: true
+        });
+        rectangle.on('dragstart', (e) => {
+            shadowRectangle90.show();
+            shadowRectangle90.moveToTop();
+            rectangle.moveToTop();
+        });
+        rectangle.on('dragend', (e) => {
+            rectangle.position({
+                x: Math.round(rectangle.x() / blockSnapSize) * blockSnapSize,
+                y: Math.round(rectangle.y() / blockSnapSize) * blockSnapSize
+            });
+            stage.batchDraw();
+            shadowRectangle90.hide();
+            if (rectangle.attrs.fill == '#00FF00') {
+                console.log(rectangle);
+                rectangle.attrs.fill = '#696969';
+                newRectangle90(blockSnapSize * 1, blockSnapSize * 1, layer, stage, '#00FF00');
+            };
+
+        });
+        rectangle.on('dragmove', (e) => {
+            shadowRectangle90.position({
+                x: Math.round(rectangle.x() / blockSnapSize) * blockSnapSize,
+                y: Math.round(rectangle.y() / blockSnapSize) * blockSnapSize
+            });
+            stage.batchDraw();
+        });
+        if (rectangle.attrs.fill != '#00FF00') {
+            wallList.push(rectangle);
+        }
+        layer.add(rectangle);
+    }
+
+    var stage = new Konva.Stage({
+        container: 'container',
+        width: width,
+        height: height
+    });
+
+    var gridLayer = new Konva.Layer();
+    var padding = blockSnapSize;
+    console.log(width, padding, width / padding);
+    for (var i = 0; i < width / padding; i++) {
+        gridLayer.add(new Konva.Line({
+            points: [Math.round(i * padding) + 0.5, 0, Math.round(i * padding) + 0.5, height],
+            stroke: '#ddd',
+            strokeWidth: 1,
+        }));
+    }
+
+    gridLayer.add(new Konva.Line({ points: [0, 0, 10, 10] }));
+    for (var j = 0; j < height / padding; j++) {
+        gridLayer.add(new Konva.Line({
+            points: [0, Math.round(j * padding), width, Math.round(j * padding)],
+            stroke: '#ddd',
+            strokeWidth: 0.5,
+        }));
+    }
+
+    var layer = new Konva.Layer();
+    shadowRectangle.hide();
+    layer.add(shadowRectangle);
+    @foreach (var block in @Model.WallBlockList)
+    {
+        if (block.Rotation == 90)
+        {
+            @: newRectangle90(blockSnapSize * @block.PositionX, blockSnapSize * @block.PositionY, layer, stage, '#696969');
+        }
+        else
+        {
+            @: newRectangle(blockSnapSize * @block.PositionX, blockSnapSize * @block.PositionY, layer, stage, '#696969');
+
+        }
+    }
+
+    newRectangle90(blockSnapSize * 1, blockSnapSize * 1, layer, stage, '#00FF00');
+    newRectangle(blockSnapSize * 4, blockSnapSize * 1, layer, stage, '#00FF00');
+
+
+    stage.add(gridLayer);
+    stage.add(layer);
+
+    function uploadWalls() {
+        var wallJson = new Array();
+
+        wallList.forEach(element => {
+            var wallObj = {Rotation : 0, PositionX : 0, PositionY : 0 };
+            if (element.attrs.width == 40) {
+                wallObj.Rotation = 90;
+                wallObj.PositionX = element.attrs.x / blockSnapSize;
+                wallObj.PositionY = element.attrs.y / blockSnapSize;
+            }
+            else {
+                wallObj.Rotation = 0;
+                wallObj.PositionX = element.attrs.x / blockSnapSize;
+                wallObj.PositionY = element.attrs.y / blockSnapSize;
+            }
+            wallJson.push(wallObj);
+        });
+
+        console.log(wallJson);
+        $.ajax({
+            url: '/api/RoomPlans/@Model.RoomId/walls',
+            type: 'PUT',
+            contentType: "application/json",
+            data: JSON.stringify(wallJson),
+            success: function (response) {
+                window.location.reload();
+            }
+        });
+    }
+
+</script>

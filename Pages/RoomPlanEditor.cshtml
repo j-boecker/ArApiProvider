@@ -99,8 +99,8 @@
             if (rectangle.attrs.fill == '#00FF00') {
                 rectangle.attrs.fill = '#696969';
                 newRectangle(blockSnapSize * 4, blockSnapSize * 1, layer, stage, '#00FF00');
+                wallList.push(rectangle);
             }
-
         });
         rectangle.on('dragmove', (e) => {
             shadowRectangle.position({
@@ -109,10 +109,7 @@
             });
             stage.batchDraw();
         });
-        if (rectangle.attrs.fill != '#00FF00') {
-                wallList.push(rectangle);
-            }
-       
+
         layer.add(rectangle);
     }
     function newRectangle90(x, y, layer, stage, fill) {
@@ -146,6 +143,7 @@
                 console.log(rectangle);
                 rectangle.attrs.fill = '#696969';
                 newRectangle90(blockSnapSize * 1, blockSnapSize * 1, layer, stage, '#00FF00');
+                wallList.push(rectangle);
             };
 
         });
@@ -156,9 +154,6 @@
             });
             stage.batchDraw();
         });
-        if (rectangle.attrs.fill != '#00FF00') {
-            wallList.push(rectangle);
-        }
         layer.add(rectangle);
     }
 
@@ -236,7 +231,7 @@
             contentType: "application/json",
             data: JSON.stringify(wallJson),
             success: function (response) {
-                window.location.reload();
+                console.log("Uploaded");
             }
         });
     }

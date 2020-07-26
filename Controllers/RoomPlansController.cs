@@ -24,10 +24,13 @@ namespace ArApiProvider.Controllers
 
         // GET: api/RoomPlans
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<RoomPlan>>> GetRoomPlans()
+        public async Task<ActionResult<IEnumerable<RoomPlan>>> GetRoomPlans(bool includeWalls = false)
         {
-            return await _context.RoomPlans.ToListAsync();
+            return !includeWalls
+                ? await _context.RoomPlans.ToListAsync()
+                : await _context.RoomPlans.Include(x => x.WallBlocks).ToListAsync();
         }
+
 
         // GET: api/RoomPlans/5
         [HttpGet("{id}")]

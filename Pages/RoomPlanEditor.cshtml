@@ -8,10 +8,10 @@
 
 <script src="js/konva.min.js"></script>
 <div class="row">
-    <div clas="col-3">
+    <div clas="col-md-2 col-12">
         <button  onclick="uploadWalls()" id="saveButton" class="btn-primary">Save Changes</button>
     </div>
-    <div class=" col-8">
+    <div class="col-md-8 col-12">
         <div id="container"></div>
 
     </div>
@@ -26,8 +26,8 @@
         background-size: cover;
     }
     #container{
-        height: 500px;
-        width: 500px;
+        height: 80vh;
+        width: 80vw;
     }
 
     #desc {
@@ -38,8 +38,8 @@
 </style>
 
 <script>
-    var width = 800;
-    var height = 800;
+    var width = 500;
+    var height = 500;
     var shadowOffset = 10;
     var tween = null;
     var blockSnapSize = 20;
@@ -109,6 +109,9 @@
             });
             stage.batchDraw();
         });
+        if (rectangle.attrs.fill == '#696969') {
+            wallList.push(rectangle);
+        }
 
         layer.add(rectangle);
     }
@@ -154,6 +157,9 @@
             });
             stage.batchDraw();
         });
+        if (rectangle.attrs.fill == '#696969') {
+            wallList.push(rectangle);
+        }
         layer.add(rectangle);
     }
 
@@ -165,7 +171,7 @@
 
     var gridLayer = new Konva.Layer();
     var padding = blockSnapSize;
-    console.log(width, padding, width / padding);
+
     for (var i = 0; i < width / padding; i++) {
         gridLayer.add(new Konva.Line({
             points: [Math.round(i * padding) + 0.5, 0, Math.round(i * padding) + 0.5, height],
@@ -195,7 +201,6 @@
         else
         {
             @: newRectangle(blockSnapSize * @block.PositionX, blockSnapSize * @block.PositionY, layer, stage, '#696969');
-
         }
     }
 
@@ -231,7 +236,7 @@
             contentType: "application/json",
             data: JSON.stringify(wallJson),
             success: function (response) {
-                console.log("Uploaded");
+                console.log(response);
             }
         });
     }

@@ -31,4 +31,8 @@
     <PackageReference Include="Swashbuckle.Core" Version="5.6.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\lib\bootstrap\dist\js\" />
+  </ItemGroup>
+
 </Project>

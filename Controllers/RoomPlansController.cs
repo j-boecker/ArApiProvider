@@ -8,11 +8,13 @@ using Microsoft.EntityFrameworkCore;
 using ArApiProvider.Data;
 using ArApiProvider.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 
 namespace ArApiProvider.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [EnableCors("AllowAll")]
     public class RoomPlansController : ControllerBase
     {
         private readonly RoomsDbContext _context;

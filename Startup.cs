@@ -38,6 +38,14 @@ namespace ArApiProvider
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
             services.AddSwaggerGen();
 
+            services.AddCors(o => o.AddPolicy("AllowAll", builder =>
+            {
+                builder.AllowAnyOrigin()
+                    .AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader();
+            }));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -64,7 +72,7 @@ namespace ArApiProvider
 
             app.UseAuthentication();
             app.UseAuthorization();
-
+            app.UseCors();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();

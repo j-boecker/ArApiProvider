@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace ArApiProvider.Migrations
+namespace ArApiProvider.Migrations.RoomsDbContextMySqlMigrations
 {
     public partial class WallBlocks2 : Migration
     {

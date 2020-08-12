@@ -15,5 +15,9 @@ namespace ArApiProvider.Data
         {
 
         }
+        public RoomsDbContext(DbContextOptions options) : base(options)
+        {
+
+        }
     }
 }

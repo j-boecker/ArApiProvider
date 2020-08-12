@@ -7,10 +7,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ArApiProvider.Data
 {
-    public class ApplicationDbContext : IdentityDbContext
+    public class ApplicationDbContextSqlite : ApplicationDbContext
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
-            : base(options)
+        public ApplicationDbContextSqlite(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
         }
     }

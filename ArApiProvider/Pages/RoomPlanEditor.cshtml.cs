@@ -12,9 +12,9 @@ namespace ArApiProvider.Pages
     public class RoomPlanEditorModel : PageModel
     {
 
-        private readonly ArApiProvider.Data.RoomsDbContext _context;
+        private readonly Data.RoomsDbContext _context;
 
-        public RoomPlanEditorModel(ArApiProvider.Data.RoomsDbContext context)
+        public RoomPlanEditorModel(Data.RoomsDbContext context)
         {
             _context = context;
         }
